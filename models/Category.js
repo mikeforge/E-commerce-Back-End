@@ -2,11 +2,22 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Category extends Model {}
+class Category extends Model { }
 
 Category.init(
   {
-    // define columns
+    //columns
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true,
+
+    },
+    category_name: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
   },
   {
     sequelize,
