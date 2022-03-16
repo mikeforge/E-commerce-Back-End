@@ -48,24 +48,24 @@ router.put('/:id', (req, res) => {
   // update a category by its `id` value
   Category.update({
     category_name: req.body.category_name
-}, 
-{
-    where: {
+  },
+    {
+      where: {
         id: req.params.id
-    }
-})
+      }
+    })
     .then(catData => {
-            if (!catData) {
-                res.status(404).json({message: 'No matching category'});
-                return;
-            }
-            res.json(catData);
-        }
+      if (!catData) {
+        res.status(404).json({ message: 'No matching category' });
+        return;
+      }
+      res.json(catData);
+    }
     )
     .catch((err) => {
-            console.error(err);
-            res.status(500).json(err);
-        }
+      console.error(err);
+      res.status(500).json(err);
+    }
     )
 });
 
@@ -73,20 +73,20 @@ router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
-        id: req.params.id
+      id: req.params.id
     }
-})
+  })
     .then(catData => {
-            if (!catData) {
-                res.status(404).json({message: 'No matching category'});
-                return;
-            }
-            res.json(catData);
-        }
+      if (!catData) {
+        res.status(404).json({ message: 'No matching category' });
+        return;
+      }
+      res.json(catData);
+    }
     )
     .catch((err) => {
-        console.error(err);
-        res.status(500).json(err);
+      console.error(err);
+      res.status(500).json(err);
     })
 });
 

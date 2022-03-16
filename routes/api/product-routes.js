@@ -10,11 +10,11 @@ router.get('/', (req, res) => {
   Product.findAll({
     include: [Category, Tag],
   })
-  .then((productData) => res.json(productData))
-  .catch((err) => {
-    console.error(err);
-    res.status(500).json(err);
-  });
+    .then((productData) => res.json(productData))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
 });
 
 // get one product
@@ -23,14 +23,14 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Category and Tag data
   Product.findOne({
     where: {
-        id: req.params.id
+      id: req.params.id
     },
     include: [Category, Tag],
-})
+  })
     .then((productData) => res.json(productData))
     .catch((err) => {
-        console.error(err);
-        res.status(500).json(err);
+      console.error(err);
+      res.status(500).json(err);
     });
 });
 
@@ -112,19 +112,19 @@ router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
-        id: req.params.id
+      id: req.params.id
     }
-})
+  })
     .then(productData => {
-        if (!productData) {
-            res.status(404).json({message: 'No matching product'});
-            return;
-        }
-        res.json(productData);
+      if (!productData) {
+        res.status(404).json({ message: 'No matching product' });
+        return;
+      }
+      res.json(productData);
     })
     .catch((err) => {
-        console.error(err);
-        res.status(500).json(err);
+      console.error(err);
+      res.status(500).json(err);
     })
 });
 
