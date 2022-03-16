@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   })
     .then((catData) => res.json(catData))
     .catch((err) => {
-      console.err(err);
+      console.error(err);
       res.status(500).json(err);
     })
 });
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
   })
     .then((catData) => res.json(catData))
     .catch((err) => {
-      console.err(err);
+      console.error(err);
       res.status(500).json(err);
     })
 });
@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
   })
     .then((catData) => res.json(catData))
     .catch((err) => {
-      console.err(err);
+      console.error(err);
       res.status(500).json(err);
     })
 });
@@ -63,7 +63,7 @@ router.put('/:id', (req, res) => {
         }
     )
     .catch((err) => {
-            console.err(err);
+            console.error(err);
             res.status(500).json(err);
         }
     )
@@ -85,7 +85,7 @@ router.delete('/:id', (req, res) => {
         }
     )
     .catch((err) => {
-        console.err(err);
+        console.error(err);
         res.status(500).json(err);
     })
 });
